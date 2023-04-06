@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/Luis0714/ProyectoLL1.gitgithub.com/Luis0714/ProyectoLL1/ManejoArchivo"
+	"github.com/Luis0714/ProyectoLL1.gitgithub.com/Luis0714/ProyectoLL1/Logica"
+	
 )
 
 func main(){
@@ -12,15 +14,9 @@ func main(){
 	contenido, err := ManejoArchivo.ObtenerContenido(archivo)
 	gramatica, err := ManejoArchivo.DecodificarContenido(contenido)
     if err != nil {
-        fmt.Println("Error al abrir el archivo:", err)
+        fmt.Println("Error: ", err)
         return
     }
 
-    // Decodificar el archivo JSON en una estructura de datos
-
-
-    // Imprimir la estructura de datos
-    fmt.Println("Terminales:", gramatica.Terminales[0])
-    fmt.Println("No terminales:", gramatica.NoTerminales[0])
-    fmt.Println("Expresiones:", gramatica.Expresiones["E"])
+    fmt.Println(Logica.Primeros(gramatica))
 }
